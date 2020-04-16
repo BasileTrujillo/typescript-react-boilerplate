@@ -4,11 +4,12 @@ This project is an opinionated starter kit with React, TypeScript, I18n, Routing
 
 ## @todo
 
-[] WTFM (Write The Fucking Manual)
-[] Write all unit tests
-[] Write github action CI
-[] Write github action CD
-[] Add base files/tools like .editorconfig
+* Add the appolo provider for grahpql support
+* WTFM (Write The Fucking Manual)
+* Write all unit tests
+* Write github action CI
+* Write github action CD
+* Add base files/tools like .editorconfig
 
 ## Usefull links
 
