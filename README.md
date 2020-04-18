@@ -4,23 +4,59 @@ This project is an opinionated starter kit with React, TypeScript, I18n, Routing
 
 ## @todo
 
-* Add the appolo provider for grahpql support
-* WTFM (Write The Fucking Manual)
-* Write all unit tests
-* Write github action CI
-* Write github action CD
-* Add base files/tools like .editorconfig
+- Add the appolo provider for grahpql support
+  - Network Status bar : https://github.com/molindo/react-apollo-network-status
+  - Debug mode with : https://github.com/blackxored/apollo-link-logger
+  - Offline and Optimistic : https://github.com/helfer/apollo-link-queue & https://github.com/helfer/apollo-link-optimistic
+  - Configurable Context : https://www.apollographql.com/docs/link/links/context/
+  - Configurable Upload : https://github.com/jaydenseric/apollo-upload-client
+  - Configurable Retry : https://www.apollographql.com/docs/link/links/retry/
+  - Configurable Batch : https://www.apollographql.com/docs/link/links/batch-http/
+  - Configurable REST : https://www.apollographql.com/docs/link/links/rest/
+- WTFM (Write The Fucking Manual)
+- Write all unit tests
+- Write github action CI
+- Write github action CD
+- Add base files/tools like .editorconfig
+
+### Directory Layout
+
+Here is how the project structure looks like:
+
+```
+.
+├── /.stortybook/               # Storybook configuration files
+├── /build/                     # The folder for compiled output
+├── /docs/                      # Documentation files for the project
+├── /node_modules/              # 3rd-party libraries and utilities
+├── /public/                    # Static files which are copied into the /build/public folder
+├── /src/                       # The source code of the application
+│   ├── /components/            # React stateless components
+│   ├── /layouts/               # React layout components
+│   ├── /services/              # Application services such as routing, i18n, style, graphql
+│   ├── /views/                 # React statfull components that defines views/blocs/pages
+│   ├── /config.ts              # Global application settings
+│   ├── /index.tsx              # client-side startup script
+│   └── ...                     # Other core framework modules
+├── Dockerfile                  # Commands for building a Docker image for production
+├── package.json                # The list of 3rd party libraries and utilities
+├── yarn.lock                   # Fixed versions of all the dependencies
+└── ...                         # Other base project files
+```
 
 ## Usefull links
 
 ### React+TypeScript Cheatsheets
+
 https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 
 ### Material UI related project
+
 Usefull to find third part libs.
 https://material-ui.com/discover-more/related-projects/
 
 # CRA Doc
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

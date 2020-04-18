@@ -1,18 +1,19 @@
-import React, {Dispatch, ReactNode, useEffect, useReducer} from 'react';
+import React, { Dispatch, ReactNode, useEffect, useReducer } from 'react';
 
 // Define and export the AppContextState type
 export type AppContextState = {
-    state: any;
-    dispatch: Dispatch<AppAction>;
-}
+  state: any;
+  dispatch: Dispatch<AppAction>;
+};
 
 // Create the context
 export const AppContext = React.createContext({} as AppContextState);
 
 // Initial store state
 export const defaultState = {
-    lang: 'en-US',
-    theme: 'light',
+  lang: 'en-US',
+  theme: 'light',
+  themeAutoDetect: true,
 };
 type AppState = typeof defaultState;
 
@@ -21,40 +22,46 @@ const LOCALSTORAGE_KEY = 'appContext';
 let localState: AppState;
 const rawLocalState = localStorage.getItem(LOCALSTORAGE_KEY);
 if (typeof rawLocalState === 'string' && rawLocalState !== '') {
-    localState = JSON.parse(rawLocalState);
+  localState = JSON.parse(rawLocalState);
 }
 
 // Types for ts validation and completion
 type AppAction =
-        { type: 'change-language';  lang: string }
-    |   { type: 'change-theme';     theme: string }
+  | { type: 'change-language'; lang: string }
+  | { type: 'change-theme'; theme: string }
+  | { type: 'change-theme-auto-detect'; enabled: boolean };
 
 // Define the reducer to handle store mutations
 const appContextReducer = (state: AppState, action: AppAction) => {
-    switch (action.type) {
-        case "change-language":
-            return { ...state, lang: action.lang };
-        case "change-theme":
-            return { ...state, theme: action.theme };
-    }
+  switch (action.type) {
+    case 'change-language':
+      return { ...state, lang: action.lang };
+    case 'change-theme':
+      return { ...state, theme: action.theme };
+    case 'change-theme-auto-detect':
+      return { ...state, themeAutoDetect: action.enabled };
+  }
 };
 
 // AppContextProvider props type
 type AppContextProviderProps = {
-    children: ReactNode
-}
+  children: ReactNode;
+};
 
 export const AppContextProvider = (props: AppContextProviderProps) => {
-    let [state, dispatch] = useReducer(appContextReducer, localState || defaultState);
-    let appContextValue = {state, dispatch};
+  let [state, dispatch] = useReducer(
+    appContextReducer,
+    localState || defaultState,
+  );
+  let appContextValue = { state, dispatch };
 
-    useEffect(() => {
-        localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(state));
-    }, [state]);
+  useEffect(() => {
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(state));
+  }, [state]);
 
-    return (
-        <AppContext.Provider value={appContextValue}>
-            {props.children}
-        </AppContext.Provider>
-    );
+  return (
+    <AppContext.Provider value={appContextValue}>
+      {props.children}
+    </AppContext.Provider>
+  );
 };

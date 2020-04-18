@@ -7,5 +7,5 @@ const history = createBrowserHistory();
 export default history as NonNullable<History>;
 
 export const getRedirectHandler = (path: string) => () => {
-    history.push(path);
+  history.push(path);
 };

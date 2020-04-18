@@ -9,6 +9,8 @@ type I18nProviderProps = {
 
 export const I18nProvider = (props: I18nProviderProps) => {
     const appContext = useContext(AppContext);
+    // var userLang = navigator.language || navigator.userLanguage;
+    // alert ("The language is: " + userLang);
     const intl = loadTranslations(appContext.state.lang);
 
     return (

@@ -9,15 +9,15 @@
 
 import React from 'react';
 import Home from './Home';
-import {AppLayout} from "../../layouts/AppLayout/AppLayout";
+import { AppLayout } from '../../layouts/AppLayout/AppLayout';
 
 const HomeRoute = (props: any) => {
   const title = 'Home';
-  return  (
-      <AppLayout>
-        <Home title={title} />
-      </AppLayout>
-    );
+  return (
+    <AppLayout>
+      <Home title={title} />
+    </AppLayout>
+  );
 };
 
 export default HomeRoute;
