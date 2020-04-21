@@ -1,20 +1,21 @@
-import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from 'apollo-link-error';
-import { ApolloLink } from 'apollo-link';
+import {ApolloLink} from 'apollo-link';
 import { split } from 'apollo-link';
 import { HttpLink } from 'apollo-link-http';
 import { WebSocketLink } from 'apollo-link-ws';
 import { getMainDefinition } from 'apollo-utilities';
+import {ApolloClient} from "apollo-client";
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3000/graphql',
+  //uri: 'http://localhost:4001/graphql',
+  uri: 'https://graphql-pokemon.now.sh/',
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: `ws://localhost:5000/`,
+  uri: `ws://127.0.0.1:4001/graphql/`,
   options: {
     reconnect: true,
     lazy: true,
@@ -33,21 +34,25 @@ const httpAndWSLink = split(
     );
   },
   wsLink,
-  httpLink,
+  httpLink
 );
 
-export const client = new ApolloClient({
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+      ),
+    );
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+});
+
+const apolloConfig = {
   link: ApolloLink.from([
-    onError(({ graphQLErrors, networkError }) => {
-      if (graphQLErrors)
-        graphQLErrors.forEach(({ message, locations, path }) =>
-          console.log(
-            `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
-          ),
-        );
-      if (networkError) console.log(`[Network error]: ${networkError}`);
-    }),
+    errorLink,
     httpAndWSLink,
   ]),
   cache: new InMemoryCache(),
-});
+};
+
+export const client = new ApolloClient(apolloConfig);

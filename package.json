@@ -23,6 +23,7 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "history": "^4.10.1",
+    "notistack": "^0.9.11",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flag-icon-css": "^1.0.25",

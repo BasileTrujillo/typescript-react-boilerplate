@@ -3,7 +3,7 @@ import { AppContext } from 'views/App/App.context';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import FlagIcon from '../../../../services/style/FlagIcon';
+import FlagIcon from '../../services/style/FlagIcon';
 import { Tooltip } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 

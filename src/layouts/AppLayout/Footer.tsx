@@ -1,5 +1,5 @@
 import React from 'react';
-import StatusBar from './StatusBar/StatusBar';
+import StatusBar from '../../components/StatusBar/StatusBar';
 
 type FooterProps = {};
 

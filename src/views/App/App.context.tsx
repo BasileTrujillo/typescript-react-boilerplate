@@ -27,7 +27,7 @@ if (typeof rawLocalState === 'string' && rawLocalState !== '') {
 
 // Types for ts validation and completion
 type AppAction =
-  | { type: 'change-language'; lang: string }
+    { type: 'change-language'; lang: string }
   | { type: 'change-theme'; theme: string }
   | { type: 'change-theme-auto-detect'; enabled: boolean };
 

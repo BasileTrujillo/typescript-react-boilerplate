@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {Footer} from "../AppLayout/Footer/Footer";
+import {Footer} from "../AppLayout/Footer";
 
 type DefaultLayoutProps = {
     children: ReactNode;

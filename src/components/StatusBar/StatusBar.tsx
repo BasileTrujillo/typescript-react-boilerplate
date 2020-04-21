@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import {LanguagePicker} from "../LanguagePicker/LanguagePicker";
 import {ThemePicker} from "../ThemePicker/ThemePicker";
+import {NetworkStatus} from "../NetworkStatus/NetworkStatus";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -34,6 +36,14 @@ export default function StatusBar() {
                 <Toolbar variant="dense" className={classes.toolbar} >
                     <LanguagePicker/>
                     <ThemePicker/>
+                  <Grid
+                    container
+                    direction="row"
+                    justify="flex-end"
+                    alignItems="flex-end"
+                  >
+                    <NetworkStatus/>
+                  </Grid>
                 </Toolbar>
             </AppBar>
         </div>

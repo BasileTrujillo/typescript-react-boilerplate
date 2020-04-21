@@ -19,14 +19,14 @@ const isModifiedEvent = (event: MouseEvent) => {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 };
 
-type PropTypes = {
+type LinkPropTypes = {
   to: string;
   onClick?: Function;
   children?: ReactNode;
   className?: string;
 };
 
-const Link = ({ to, children, onClick, ...restProps }: PropTypes) => {
+const Link = ({ to, children, onClick, ...restProps }: LinkPropTypes) => {
     return (
         <MuiLink
             color="inherit"
