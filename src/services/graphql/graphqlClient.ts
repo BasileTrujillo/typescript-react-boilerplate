@@ -9,13 +9,12 @@ import {ApolloClient} from "apollo-client";
 
 // Create an http link:
 const httpLink = new HttpLink({
-  //uri: 'http://localhost:4001/graphql',
-  uri: 'https://graphql-pokemon.now.sh/',
+  uri: 'http://localhost:4001/graphql',
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: `ws://127.0.0.1:4001/graphql/`,
+  uri: `ws://127.0.0.1:4001/graphql`,
   options: {
     reconnect: true,
     lazy: true,

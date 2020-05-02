@@ -10,9 +10,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       pointerEvents: 'none',
       animation: '$home-logo-spin infinite 20s linear',
     },
-    header: {
+    container: {
       backgroundColor: theme.palette.background.default,
-      minHeight: '100vh',
+      paddingTop: '5rem',
+      paddingBottom: '4rem',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',

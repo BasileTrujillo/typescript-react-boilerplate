@@ -36,6 +36,8 @@ export type GraphqlAction =
   | { type: 'decrement-pending-query'; }
   | { type: 'increment-pending-mutation'; }
   | { type: 'decrement-pending-mutation'; }
+  | { type: 'increment-pending-subscription'; }
+  | { type: 'decrement-pending-subscription'; }
   | { type: 'add-error'; error: Error };
 
 // Define the reducer to handle store mutations
@@ -62,6 +64,17 @@ const graphqlContextReducer = (state: GraphqlState, action: GraphqlAction) => {
       return {
         ...state,
         pendingMutation: state.pendingMutation - 1
+      };
+    case 'increment-pending-subscription':
+      return {
+        ...state,
+        pendingSubscription: state.pendingSubscription + 1,
+        totalSubscription: state.totalSubscription + 1
+      };
+    case 'decrement-pending-subscription':
+      return {
+        ...state,
+        pendingSubscription: state.pendingSubscription - 1
       };
     case 'add-error':
       return {

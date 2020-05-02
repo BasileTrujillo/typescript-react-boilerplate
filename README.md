@@ -1,11 +1,10 @@
 # React Typescript boilerplate
 
-This project is an opinionated starter kit with React, TypeScript, I18n, Routing, Theming for creating a website, an app, or anything you have in mind...
+This project is an opinionated starter kit with React, TypeScript, I18n, Routing, Theming, GraphQL...
 
 ## @todo
 
 - Add the appolo provider for grahpql support
-  - Network Status bar : https://github.com/molindo/react-apollo-network-status
   - Debug mode with : https://github.com/blackxored/apollo-link-logger
   - Offline and Optimistic : https://github.com/helfer/apollo-link-queue & https://github.com/helfer/apollo-link-optimistic
   - Configurable Context : https://www.apollographql.com/docs/link/links/context/
