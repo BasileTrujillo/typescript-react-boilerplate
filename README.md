@@ -57,6 +57,15 @@ https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypes
 Usefull to find third part libs.
 https://material-ui.com/discover-more/related-projects/
 
+## CLI
+
+### Linting
+
+Execute the CRA embeded lint without having to build.
+```
+yarn lint
+```
+
 ## @todo
 
 - Add the appolo provider for grahpql support
