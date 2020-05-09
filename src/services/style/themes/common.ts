@@ -8,3 +8,5 @@ export const fontFamilyRoboto = {
         '"Segoe UI Symbol"'
     ].join(",")
 };
+
+export const sidebarWidth = 240;

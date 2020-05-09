@@ -14,6 +14,7 @@ export const defaultState = {
   lang: 'en-US',
   theme: 'light',
   themeAutoDetect: true,
+  sidebarOpened: true,
 };
 type AppState = typeof defaultState;
 
@@ -29,7 +30,9 @@ if (typeof rawLocalState === 'string' && rawLocalState !== '') {
 type AppAction =
     { type: 'change-language'; lang: string }
   | { type: 'change-theme'; theme: string }
-  | { type: 'change-theme-auto-detect'; enabled: boolean };
+  | { type: 'change-theme-auto-detect'; enabled: boolean }
+  | { type: 'toggle-sidebar'; }
+;
 
 // Define the reducer to handle store mutations
 const appContextReducer = (state: AppState, action: AppAction) => {
@@ -40,6 +43,8 @@ const appContextReducer = (state: AppState, action: AppAction) => {
       return { ...state, theme: action.theme };
     case 'change-theme-auto-detect':
       return { ...state, themeAutoDetect: action.enabled };
+    case 'toggle-sidebar':
+      return { ...state, sidebarOpened: !state.sidebarOpened };
   }
 };
 

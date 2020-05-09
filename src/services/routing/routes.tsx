@@ -3,6 +3,7 @@ import {Route, RouteContext, RouteParams, RouterContext} from 'universal-router'
 import HomeRoute from "../../views/Home";
 import Error404Route from "../../views/Error/404";
 import LoginRoute from "../../views/Login";
+import GraphqlExempleRoute from "../../views/GraphqlExemple";
 
 const routes: Route = {
     path: '',
@@ -13,6 +14,12 @@ const routes: Route = {
             path: '',
             action: async (context: RouteContext<any, RouterContext>, params: RouteParams) => {
                 return <HomeRoute />;
+            }
+        },
+        {
+            path: '/graphql',
+            action: async (context: RouteContext<any, RouterContext>, params: RouteParams) => {
+                return <GraphqlExempleRoute />;
             }
         },
         {

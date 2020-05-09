@@ -2,7 +2,6 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import logo from '../../logo.svg';
 import { useStyles } from './Home.style';
-import GraphqlTests from "./GraphqlTests/GraphqlTests";
 import {Container} from "@material-ui/core";
 
 const Home = () => {
@@ -14,7 +13,6 @@ const Home = () => {
       <Container maxWidth="xl" className={classes.container}>
         <img src={logo} className={classes.logo} alt="logo" />
         <p>{f({ id: 'homeBaseline' })}</p>
-        <GraphqlTests/>
       </Container>
     </div>
   );

@@ -2,21 +2,21 @@
 
 This project is an opinionated starter kit with React, TypeScript, I18n, Routing, Theming, GraphQL...
 
-## @todo
+![Home App preview](doc/home-dark.png "Home App preview")
 
-- Add the appolo provider for grahpql support
-  - Debug mode with : https://github.com/blackxored/apollo-link-logger
-  - Offline and Optimistic : https://github.com/helfer/apollo-link-queue & https://github.com/helfer/apollo-link-optimistic
-  - Configurable Context : https://www.apollographql.com/docs/link/links/context/
-  - Configurable Upload : https://github.com/jaydenseric/apollo-upload-client
-  - Configurable Retry : https://www.apollographql.com/docs/link/links/retry/
-  - Configurable Batch : https://www.apollographql.com/docs/link/links/batch-http/
-  - Configurable REST : https://www.apollographql.com/docs/link/links/rest/
-- WTFM (Write The Fucking Manual)
-- Write all unit tests
-- Write github action CI
-- Write github action CD
-- Add base files/tools like .editorconfig
+
+What is inside:
+
+* A Base structure to start your project
+* Components showcase with Storybook
+* Unit test with Jest (provided by CRA)
+* App Config handling
+* App Routing using Universal-Router
+* I18n using react-intl
+* Styling using Material-UI style engine
+* GraphQL support with Apollo Client (and some preconfigured plugins such as WebSocket, logging, batching, retry policy, offline support)
+* A GraphQL Network status indicator
+* A base UI layout using Material-UI
 
 ### Directory Layout
 
@@ -34,14 +34,17 @@ Here is how the project structure looks like:
 │   ├── /layouts/               # React layout components
 │   ├── /services/              # Application services such as routing, i18n, style, graphql
 │   ├── /views/                 # React statfull components that defines views/blocs/pages
-│   ├── /config.ts              # Global application settings
+│   ├── /config/                # Global application settings
 │   ├── /index.tsx              # client-side startup script
-│   └── ...                     # Other core framework modules
-├── Dockerfile                  # Commands for building a Docker image for production
+│   └── ...                     # Other core app modules
 ├── package.json                # The list of 3rd party libraries and utilities
 ├── yarn.lock                   # Fixed versions of all the dependencies
 └── ...                         # Other base project files
 ```
+
+## Documentation and Exemples
+
+Coming soon...
 
 ## Usefull links
 
@@ -53,6 +56,15 @@ https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypes
 
 Usefull to find third part libs.
 https://material-ui.com/discover-more/related-projects/
+
+## @todo
+
+- Add the appolo provider for grahpql support
+- Configurable Upload : https://github.com/jaydenseric/apollo-upload-client
+- WTFM (Write The Fucking Manual)
+- Write all unit tests
+- Write github action CI
+- Write github action CD
 
 # CRA Doc
 
