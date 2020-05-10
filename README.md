@@ -3,6 +3,7 @@
 This project is an opinionated starter kit with React, TypeScript, I18n, Routing, Theming, GraphQL...
 
 ![Home App preview](doc/home-dark.png "Home App preview")
+![Login App preview](doc/login-dark.png "Login App preview")
 
 
 What is inside:
@@ -68,8 +69,7 @@ yarn lint
 
 ## @todo
 
-- Add the appolo provider for grahpql support
-- Configurable Upload : https://github.com/jaydenseric/apollo-upload-client
+- Add Apollo Upload link : https://github.com/jaydenseric/apollo-upload-client
 - WTFM (Write The Fucking Manual)
 - Write all unit tests
 - Write github action CI
