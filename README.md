@@ -5,6 +5,7 @@ This project is an opinionated starter kit with React, TypeScript, I18n, Routing
 ![Home App preview](doc/home-dark.png "Home App preview")
 ![Login App preview](doc/login-dark.png "Login App preview")
 
+***What's new in v0.2.0: Package update (apollo client v3 and history v5) + some quick refactoring***
 
 What is inside:
 
