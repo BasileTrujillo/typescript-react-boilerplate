@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import history from 'services/routing/history';
-import { Location } from 'history';
+import {Update} from 'history';
 import router from './router';
 
 type RoutingProviderProps = {};
@@ -9,8 +9,8 @@ export const RoutingProvider = (props: RoutingProviderProps) => {
   const [location, setLocation] = useState(history.location);
   const [componentToRender, setComponentToRender] = useState('Loading...');
 
-  const onLocationChange = (newLocation: Location<any>, action?: any) => {
-    setLocation(newLocation);
+  const onLocationChange = (newLocation: Update) => {
+    setLocation(newLocation.location);
   };
 
   // on componentDidMount

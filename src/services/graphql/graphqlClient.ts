@@ -1,15 +1,14 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ErrorResponse, onError } from 'apollo-link-error';
-import { ApolloLink } from 'apollo-link';
-import { split } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
-import { WebSocketLink } from 'apollo-link-ws';
-import { getMainDefinition } from 'apollo-utilities';
-import { ApolloClient } from 'apollo-client';
-import { RetryLink } from 'apollo-link-retry';
-import QueueLink from 'apollo-link-queue';
-import { BatchHttpLink } from 'apollo-link-batch-http';
-import { setContext } from 'apollo-link-context';
+import { InMemoryCache } from '@apollo/client/cache';
+import { ErrorResponse, onError } from '@apollo/client/link/error';
+import { ApolloLink, split } from '@apollo/client/link/core';
+import { HttpLink } from '@apollo/client/link/http';
+import { WebSocketLink } from '@apollo/client/link/ws';
+import { getMainDefinition } from '@apollo/client/utilities';
+import { ApolloClient } from '@apollo/client/core';
+import { RetryLink } from '@apollo/client/link/retry';
+// import QueueLink from 'apollo-link-queue';
+import { BatchHttpLink } from '@apollo/client/link/batch-http';
+import { setContext } from '@apollo/client/link/context';
 import config from '../../config';
 
 console.log('config', config);
@@ -22,7 +21,7 @@ if (config?.graphql?.retry?.enabled) {
 }
 
 // Add Offline support with the Queue link
-if (config?.graphql?.offline?.enabled) {
+/*if (config?.graphql?.offline?.enabled) {
   const offlineLink = new QueueLink();
 
   // Note: remove these listeners when your app is shut down to avoid leaking listeners.
@@ -30,7 +29,7 @@ if (config?.graphql?.offline?.enabled) {
   window.addEventListener('online', () => offlineLink.open());
 
   links.push(offlineLink);
-}
+}*/
 
 /**
  * Debug all incoming errors in the console
@@ -63,9 +62,9 @@ links.push(authorizationLink);
 // Create an http link:
 const httpLink = config?.graphql?.batching?.enabled
   ? new BatchHttpLink({
-      ...config?.graphql?.http,
-      ...config?.graphql?.batching?.options,
-    })
+    ...config?.graphql?.http,
+    ...config?.graphql?.batching?.options,
+  })
   : new HttpLink(config?.graphql?.http);
 
 // Add a WebSocket link

@@ -1,4 +1,4 @@
-import React, {ReactNode, useContext} from 'react';
+import React, {ReactElement, useContext} from 'react';
 import clsx from 'clsx';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -8,7 +8,7 @@ import {useStyles} from "./AppLayout.style";
 import {AppContext} from "../../views/App/App.context";
 
 type AppLayoutProps = {
-  children: ReactNode;
+  children: ReactElement;
 };
 
 /**

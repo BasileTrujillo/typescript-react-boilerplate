@@ -22,10 +22,24 @@ const mergeUserQueryWithSubscription = (prev: any, {subscriptionData}: any) => {
   if (!subscriptionData.data) return prev;
   const newUser = subscriptionData.data.userCreated;
 
-  prev.users?.hits?.push(newUser);
-  prev.users.nbHits = prev.users?.nbHits ? prev.users?.nbHits + 1 : 1;
+  // Prepare new payload object
+  const updatedPayload = {
+    users: {
+      __typename: prev.users.__typename || 'Users',
+      hits: [...prev.users.hits || []],
+      nbHits: prev.users.nbHits || 0
+    }
+  };
 
-  return prev;
+  // Add to previous values or set the first one
+  if (updatedPayload.users.hits && Array.isArray(updatedPayload.users.hits)) {
+    updatedPayload.users.hits = prev.users.hits.concat(newUser);
+  } else {
+    updatedPayload.users.hits = [newUser];
+  }
+  updatedPayload.users.nbHits = prev.users?.nbHits ? prev.users?.nbHits + 1 : 1;
+
+  return updatedPayload;
 };
 
 const GraphqlExemple = () => {

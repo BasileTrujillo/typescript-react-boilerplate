@@ -3,21 +3,19 @@
  * @todo handle fetchMore and subscribeToMore
  */
 import {
-  OperationVariables,
   QueryResult,
   MutationResult,
   SubscriptionResult,
-} from '@apollo/react-common';
-import { DocumentNode } from 'graphql';
-import {
   LazyQueryHookOptions,
   MutationHookOptions,
   MutationTuple,
   QueryHookOptions,
   QueryTuple,
   SubscriptionHookOptions,
-} from '@apollo/react-hooks/lib/types';
-import * as apolloHooks from '@apollo/react-hooks';
+} from '@apollo/client/react';
+import { OperationVariables, SubscribeToMoreOptions } from '@apollo/client/core';
+import { DocumentNode } from 'graphql';
+import * as apolloHooks from '@apollo/client/react';
 import {
   Dispatch,
   SetStateAction,
@@ -26,10 +24,9 @@ import {
   useState,
 } from 'react';
 import { GraphqlAction, GraphqlContext } from './Graphql.context';
-import {SubscribeToMoreOptions} from "apollo-client/core/watchQueryOptions";
 
 function handleQueryResponse<TData = any, TVariables = OperationVariables>(
-  queryResponse: QueryResult<TData, TVariables>,
+  queryResponse: any, //QueryResult<TData, TVariables>,
   dispatch: Dispatch<GraphqlAction>,
   isLoading: boolean,
   setIsLoading: Dispatch<SetStateAction<boolean>>,
@@ -58,7 +55,7 @@ function handleMutationResponse<TData = any, TVariables = OperationVariables>(
     if (!isLoading && mutationResponse.loading) {
       setIsLoading(true);
       dispatch({ type: 'increment-pending-mutation' });
-    } else if (isLoading) {
+    } else if (isLoading && !mutationResponse.loading) {
       setIsLoading(false);
       dispatch({ type: 'decrement-pending-mutation' });
     }
@@ -71,7 +68,7 @@ function handleMutationResponse<TData = any, TVariables = OperationVariables>(
 function handleSubscriptionResponse<
   TData = any,
   TVariables = OperationVariables
->(
+  >(
   subscriptionResponse: SubscriptionResult,
   dispatch: Dispatch<GraphqlAction>,
   isLoading: boolean,
@@ -161,7 +158,7 @@ export function useMutation<TData = any, TVariables = OperationVariables>(
   // Handle hook variations
   useEffect(() => {
     handleMutationResponse(mutationResponse, dispatch, isLoading, setIsLoading);
-  }, [mutationResponse]);
+  }, [mutationResponse.called, mutationResponse.loading, mutationResponse.error]);
 
   // return apollo hook original response
   return [loader, mutationResponse];
