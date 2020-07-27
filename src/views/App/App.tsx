@@ -3,9 +3,9 @@ import { AppContextProvider } from './App.context';
 import { I18nProvider } from 'services/i18n/I18nProvider';
 import { RoutingProvider } from 'services/routing/RoutingProvider';
 import { ThemeProvider } from 'services/style/ThemeProvider';
-import { GraphqlProvider } from '../../services/graphql/GraphqlProvider';
-import {GraphqlContextProvider} from "../../services/graphql/Graphql.context";
-import {SnackbarProvider} from "notistack";
+import { GraphqlProvider } from 'services/graphql/GraphqlProvider';
+import {GraphqlContextProvider} from 'services/graphql/Graphql.context';
+import { ToastProvider } from 'services/toast/ToastProvider';
 
 export const App = () => {
   return (
@@ -14,9 +14,9 @@ export const App = () => {
           <ThemeProvider>
             <GraphqlContextProvider>
               <GraphqlProvider>
-                <SnackbarProvider maxSnack={5}>
+                <ToastProvider>
                   <RoutingProvider />
-                </SnackbarProvider>
+                </ToastProvider>
               </GraphqlProvider>
             </GraphqlContextProvider>
           </ThemeProvider>
