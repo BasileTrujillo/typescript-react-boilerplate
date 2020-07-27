@@ -8,7 +8,6 @@ import {sidebarWidth} from "../../services/style/themes/common";
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      background: theme.palette.primary[theme.palette.type],
       zIndex: theme.zIndex.drawer + 1,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
