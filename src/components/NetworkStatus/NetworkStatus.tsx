@@ -8,9 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListSubheader from "@material-ui/core/ListSubheader";
 
-type NetworkStatusProps = {};
-
-export const NetworkStatus = (props: NetworkStatusProps) => {
+export const NetworkStatus = () => {
   const graphqlContext = useContext(GraphqlContext);
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
@@ -23,16 +21,8 @@ export const NetworkStatus = (props: NetworkStatusProps) => {
   };
 
   const open = Boolean(anchorEl);
-  //const id = open ? 'simple-popover' : undefined;
-
-  //const queryInfo = (<span>{graphqlContext.state.pendingQuery} Queries in progress…</span>);
-  //const mutationInfo = (<span>{graphqlContext.state.pendingMutation} Mutation in progress…</span>);
 
   return (
-    /*<p>
-      {queryInfo} | {mutationInfo} | Total Queries: {graphqlContext.state.totalQuery} |
-      number of Errors: {graphqlContext.state.errors.length} | latest error: {graphqlContext.state.errors[graphqlContext.state.errors.length - 1]?.message}
-    </p>*/
     <div>
       <NetworkIndicatorButton
         loading={
