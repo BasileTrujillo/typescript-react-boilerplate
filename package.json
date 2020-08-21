@@ -48,7 +48,7 @@
     "@types/react-flag-icon-css": "^1.0.3",
     "babel-loader": "^8.1.0",
     "jest": "^25.3.0",
-    "jest-config": "^25.3.0",
+    "jest-config": "^26.4.1",
     "prettier": "2.0.5",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
